@@ -33,16 +33,18 @@ complete <- function(directory, id = 1:332){
   
   # Now, we will count the observed cases for each ID
   # First, we will create an empty dataframe for the results
-  #results <- data.frame(id = integer(), nobs = integer())
-  print("id  nobs")
+  results <- data.frame(id = integer(), nobs = integer())
+  #print("id  nobs")
   # Then collect the information with a for loop
   for (i in id) {
+    n <- as.integer(i) # the i variable here is a double so we convert it into an integer.
     sub_df <- df_spl[[toString(i)]] # The sub_dataframe that corresponds to the actual id. It was necessary to convert "i" to a string otherwise the for loop will not work with all the id vectors. 
     nobs <- nrow(sub_df) # The number of rows for this id.
-    print(paste(i, nobs))
-    #results <- rbind(results, data.frame(id = i, nobs = nobs)) # Then append the Id and the number of rows to the empty dataframe
+    nobs <- ifelse(is.null(nobs), 0, nobs)  # if there is no complete cases, we will get the value "NULL", so we have to replace NULL with 0
+    #print(paste(i, nobs))
+    results <- rbind(results, data.frame(id = n, nobs = nobs)) # Then append the Id and the number of rows to the empty dataframe
   }
-  #print(results) # Printing the dataframe with the complete caces for each ID.
+  print(results) # Printing the dataframe with the complete caces for each ID.
 }
 
 # Testing the function
