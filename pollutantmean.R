@@ -53,7 +53,7 @@ head(combined_dataframe, n=5)
 
 print("The last 5 rows in th combined_dataframe are :")
 tail(combined_dataframe, n=5)
-# Perfect ! But in this case, if we creat a function, each time this function is called R will read all the files in the directory. It will be better to read only the files for the asked IDs and then creat a one dataframe for only these files. In this case we can do :
+# Perfect ! But in this case, each time this function is called R will read all the files in the directory. It will be better to read only the files for the asked IDs and then create a one dataframe for only these files. In this case we can do :
 
 id <- 1:332 # the full number of IDs
 selected_files <- list() # to collect the full path for the selected files
