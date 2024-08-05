@@ -21,16 +21,19 @@ hist(outcome[, 11])
 best <- function(state, outcome) {
   # read the data
   data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
-  data <- data[, c(2, 7, 13, 19, 25)] # select only the data that are concerned
+  data <- data[, c(2, 7, 13, 19, 25)] # select only the columns that are concerned
   # Rename columns
   names(data) <- c("Hospital", "State", "HA", "HF", "PN")
+  # HA: outcome rate for Heart Attack
+  # HF: outcome rate for Heart Failure
+  # PN: outcome rate for PNeumonia
 
   # check the validity of the arguments
   invalid_state <- "invalid state"
   invalid_outcome <- "invalid outcome"
 
   try(
-    if (!(state %in% data[, 2])) stop(invalid_state) # The state column in the new dataframe has the index 2.
+    if (!(state %in% data$State)) stop(invalid_state) # The state column in the new dataframe has the index 2 and the new name for this column is "State".
   )
   
   outcomes <- c("heart attack", "heart failure", "pneumonia")
