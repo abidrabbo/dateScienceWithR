@@ -1,0 +1,24 @@
+==================================================================
+======================== Code Book ===============================
+==================================================================
+In addition of the variable descriped in the data sets for this project, the following variables are also created while writing the R script :
+
+- activity_labels: a dataframe of 2 columns and 6 rows which maps each "activityId" to an activity name "activityId" from the liste ("WALKING" "WALKING_UPSTAIRS" "WALKING_DOWNSTAIRS" "SITTING" "STANDING" "LAYING")
+
+- features: a dataframe of 2 columns and 561 rows which liste 561-feature with time and frequency domain variables.
+
+- X_train: a dataframe of 561 columns and 7352 rows for the train dataset
+- y_train: a dataframe of 1 column and 7352 rows for the training labels
+- subject_train: a dataframe of 1 column and 7352 rows. Each row identifies the subject who performed the activity in the training set.
+- trainSet: a dataframe of 563 columns and 7352 rows that groupe subject_train, y_train and X_train in a one train dataset.
+
+- X_test: a dataframe of 561 columns and 2947 rows for the test dataset
+- y_test: a dataframe of 1 column and 2947 rows for the test labels
+- subject_test: a dataframe of 1 column and 2947 rows. Each row identifies the subject who performed the activity in the test set.
+- testSet: a dataframe of 563 columns and 2947 rows that groupe subject_test, y_test and X_test in a one test dataset.
+
+- allTrainTest: a dataframe of 563 columns and 10299 rows that merge trainSet and testSet in a one dataset.
+
+allTrainTestMeanStd: a sub-dataframe of "allTrainTest", of 81 columns and 10299 rows where we extracts only the measurements on the mean and standard deviation for each measurement.
+
+- secondTidyMean_Grouped: a dataframe of 81 columns and 180 rows in which we compute the average of each variable for each activity and each subject.

@@ -8,7 +8,7 @@
 
 library(data.table)
 
-# First we will set the workin directory
+# First we will set the working directory
 p_wd <- getwd()
 n_wd <- setwd(file.path(p_wd, "03_Getting_and_Cleaning_Data", "Module_4"))
 
@@ -185,4 +185,4 @@ ncol(secondTidyMean_Grouped) # 81
 nrow(secondTidyMean_Grouped) # 180
 
 # Now, we can write this new dataset to a .txt file
-data.table::fwrite(x = secondTidyMean_Grouped, file = file.path(n_wd, "UCI HAR DATASET", "AverageBySubjectByActivity.txt"), quote = FALSE)
+data.table::fwrite(x = secondTidyMean_Grouped, file = file.path(n_wd, "UCI HAR DATASET", "featureAverage_by_Subject_Activity.txt"), row.name = FALSE)
